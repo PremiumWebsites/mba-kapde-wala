@@ -23,6 +23,7 @@ const Navbar: React.FC<NavbarProps> = ({ themeContext }) => {
   const navLinks = [
     { name: 'Home', href: '#hero' },
     { name: 'About', href: '#about' },
+    { name: 'Team', href: '#team' },
     { name: 'Collections', href: '#categories' },
     { name: 'Why Us', href: '#features' },
     { name: 'Contact', href: '#location' },
@@ -38,12 +39,14 @@ const Navbar: React.FC<NavbarProps> = ({ themeContext }) => {
     >
       <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
         {/* Logo */}
-        <a href="#" className="flex flex-col items-start group">
-          <span className="text-2xl font-extrabold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-brand-cyan to-brand-purple group-hover:to-brand-cyan transition-all duration-500">
-            MBA
-          </span>
-          <span className="text-xs font-bold font-hindi tracking-wide text-zinc-800 dark:text-zinc-200 -mt-1 group-hover:text-brand-cyan transition-colors">
-            कपड़े वाला
+        <a href="#hero" className="flex flex-col items-start group">
+          <img 
+            src="/mba.png" 
+            alt="MBA Kapde Wala" 
+            className="h-10 md:h-12 object-contain transition-transform duration-300 group-hover:scale-105" 
+          />
+          <span className="text-[0.6rem] font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-widest leading-none mt-1 group-hover:text-zinc-800 dark:group-hover:text-zinc-200 transition-colors ml-1">
+            Rajnandgaon
           </span>
         </a>
 
@@ -65,7 +68,7 @@ const Navbar: React.FC<NavbarProps> = ({ themeContext }) => {
           <ThemeToggle {...themeContext} />
           
           <a
-            href="tel:+911234567890" 
+            href="tel:+919826760297" 
             className="flex items-center gap-2 bg-zinc-900 dark:bg-white text-white dark:text-black px-4 py-2 rounded-full text-xs font-bold uppercase hover:scale-105 transition-transform"
           >
             <Phone size={14} />
@@ -107,13 +110,13 @@ const Navbar: React.FC<NavbarProps> = ({ themeContext }) => {
               ))}
               <div className="flex gap-3 mt-2">
                  <a
-                  href="tel:+911234567890" 
+                  href="tel:+919826760297" 
                   className="flex-1 flex justify-center items-center gap-2 bg-brand-cyan text-white py-3 rounded-lg font-bold"
                 >
                   <Phone size={18} /> Call
                 </a>
                  <a
-                  href="https://goo.gl/maps/xyz" 
+                  href="https://maps.app.goo.gl/6D51E3hhZgWo1EiB8" 
                   target="_blank"
                   rel="noreferrer"
                   className="flex-1 flex justify-center items-center gap-2 bg-zinc-800 text-white py-3 rounded-lg font-bold"

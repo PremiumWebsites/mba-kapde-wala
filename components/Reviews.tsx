@@ -14,7 +14,23 @@ const Reviews: React.FC = () => {
         >
           <div className="flex justify-center gap-1 mb-6 text-brand-amber">
              {[...Array(5)].map((_, i) => (
-                 <Star key={i} fill={i < 4 ? "currentColor" : i === 4 ? "none" : "currentColor"} className={i===4 && "fill-brand-amber/30"} size={32} />
+                 <motion.div
+                    key={i}
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ 
+                        duration: 0.5, 
+                        delay: i * 0.1, 
+                        ease: "easeOut"
+                    }}
+                 >
+                    <Star 
+                        fill={i < 4 ? "currentColor" : i === 4 ? "none" : "currentColor"} 
+                        className={i === 4 ? "fill-brand-amber/30" : ""} 
+                        size={32} 
+                    />
+                 </motion.div>
              ))}
           </div>
           
@@ -26,9 +42,9 @@ const Reviews: React.FC = () => {
           
           <div className="flex flex-col items-center">
              <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-brand-cyan to-brand-purple p-1 mb-2">
-                <img src="https://picsum.photos/100/100?random=50" alt="Customer" className="w-full h-full rounded-full object-cover border-2 border-white dark:border-black" />
+                <img src="https://images.unsplash.com/photo-1766423936525-2ce5c6cec5d7?q=80&w=736&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Customer" className="w-full h-full rounded-full object-cover border-2 border-white dark:border-black" />
              </div>
-             <p className="font-bold text-lg text-zinc-900 dark:text-white">Rahul Verma</p>
+             <p className="font-bold text-lg text-zinc-900 dark:text-white">Aryaman V. Gupta</p>
              <p className="text-sm text-zinc-500">Local Guide • 4.3 ⭐ Google Rating</p>
           </div>
         </motion.div>

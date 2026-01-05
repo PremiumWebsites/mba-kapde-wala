@@ -34,21 +34,23 @@ const WhyUs: React.FC = () => {
   return (
     <section id="features" className="py-24 bg-brand-light dark:bg-brand-dark relative">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 flex flex-col items-center">
           <motion.h2 
-            className="text-3xl md:text-5xl font-black text-zinc-900 dark:text-white mb-4"
+            className="text-3xl md:text-5xl font-black text-zinc-900 dark:text-white mb-2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
             Why <span className="text-brand-cyan">MBA</span>?
           </motion.h2>
+          
+          {/* Animated Underline */}
           <motion.div 
-            className="h-1 w-20 bg-brand-purple mx-auto rounded-full"
+            className="h-1.5 bg-gradient-to-r from-brand-purple to-brand-cyan rounded-full"
             initial={{ width: 0 }}
-            whileInView={{ width: 80 }}
+            whileInView={{ width: 100 }}
             viewport={{ once: true }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           />
         </div>
 

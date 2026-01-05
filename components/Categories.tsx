@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
 import { CategoryCardProps } from '../types';
 
 const categories: CategoryCardProps[] = [
@@ -13,27 +12,26 @@ const categories: CategoryCardProps[] = [
 const CategoryCard: React.FC<CategoryCardProps> = ({ title, image, delay }) => {
   return (
     <motion.div
-      className="group relative h-[400px] overflow-hidden rounded-2xl cursor-pointer"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay }}
+      className="group relative h-[400px] overflow-hidden rounded-2xl cursor-pointer bg-zinc-200 dark:bg-zinc-800"
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={{ y: -5 }}
     >
-      <div className="absolute inset-0 bg-zinc-800 animate-pulse" /> {/* Placeholder while loading */}
+      <div className="absolute inset-0 bg-zinc-800/20 dark:bg-zinc-800/50" /> {/* Static placeholder */}
       <img
         src={image}
         alt={title}
-        className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+        className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+        loading="lazy"
       />
       
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 transition-opacity duration-300" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-80" />
       
-      <div className="absolute bottom-0 left-0 w-full p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <h3 className="text-2xl font-bold text-white mb-1 font-sans">{title}</h3>
-        <div className="flex items-center gap-2 text-brand-cyan opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0 delay-75">
-          <span className="text-sm font-bold uppercase tracking-wider">Explore</span>
-          <ArrowUpRight size={18} />
-        </div>
+      <div className="absolute bottom-0 left-0 w-full p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ease-out">
+        <h3 className="text-2xl font-bold text-white mb-1 font-sans tracking-tight">{title}</h3>
+        <div className="h-1 w-0 bg-brand-cyan group-hover:w-12 transition-all duration-500 ease-out mt-2" />
       </div>
     </motion.div>
   );
@@ -45,28 +43,26 @@ const Categories: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12">
           <div>
-            <h2 className="text-4xl md:text-6xl font-black text-zinc-900 dark:text-white mb-2">
+            <h2 className="text-4xl md:text-6xl font-black text-zinc-900 dark:text-white mb-2 relative inline-block">
               Curated <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-cyan">Collections</span>
+              <motion.div 
+                className="absolute -bottom-2 left-0 h-2 bg-brand-cyan/30 rounded-full"
+                initial={{ width: 0 }}
+                whileInView={{ width: '100%' }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              />
             </h2>
-            <p className="text-zinc-600 dark:text-zinc-400 max-w-md">
+            <p className="text-zinc-600 dark:text-zinc-400 max-w-md mt-4">
               Handpicked styles for the bold and the classy. Whatever your vibe, we have the fit.
             </p>
           </div>
-          <button className="hidden md:flex items-center gap-2 px-6 py-3 rounded-full border border-zinc-300 dark:border-zinc-700 text-zinc-800 dark:text-zinc-200 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors font-bold text-sm uppercase tracking-wider">
-            View All Items <ArrowUpRight size={16} />
-          </button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {categories.map((cat, idx) => (
             <CategoryCard key={idx} {...cat} />
           ))}
-        </div>
-        
-        <div className="mt-8 flex md:hidden justify-center">
-             <button className="flex items-center gap-2 px-6 py-3 rounded-full border border-zinc-300 dark:border-zinc-700 text-zinc-800 dark:text-zinc-200 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors font-bold text-sm uppercase tracking-wider">
-            View All Items <ArrowUpRight size={16} />
-          </button>
         </div>
       </div>
     </section>

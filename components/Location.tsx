@@ -36,8 +36,8 @@ const Location: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="font-bold text-zinc-900 dark:text-white mb-1">Contact</h4>
-                  <p className="text-zinc-600 dark:text-zinc-400">+91 12345 67890</p>
-                  <a href="tel:+911234567890" className="text-sm font-semibold text-brand-cyan hover:underline mt-1 block">Call Now</a>
+                  <p className="text-zinc-600 dark:text-zinc-400">+91 98267 60297</p>
+                  <a href="tel:+919826760297" className="text-sm font-semibold text-brand-cyan hover:underline mt-1 block">Call Now</a>
                 </div>
               </div>
 
@@ -55,7 +55,7 @@ const Location: React.FC = () => {
 
             <div className="mt-10">
               <a 
-                href="https://maps.google.com" 
+                href="https://maps.app.goo.gl/6D51E3hhZgWo1EiB8" 
                 target="_blank" 
                 rel="noreferrer"
                 className="inline-flex items-center justify-center gap-2 w-full py-4 bg-zinc-900 dark:bg-white text-white dark:text-black font-bold rounded-xl hover:scale-[1.02] transition-transform shadow-lg"
@@ -74,18 +74,19 @@ const Location: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
+             {/* Removed grayscale filter to make the map colourful */}
              <iframe 
-               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3728.875323862846!2d81.029!3d21.097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a2a881123456789%3A0xabcdef1234567890!2sRajnandgaon%2C%20Chhattisgarh!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" 
+               src="https://maps.google.com/maps?q=MBA+Kapde+Wala,+Gurudwara+Road,+Manav+Mandir+Rd,+Rajnandgaon,+Chhattisgarh+491441&t=&z=15&ie=UTF8&iwloc=&output=embed"
                width="100%" 
                height="100%" 
-               style={{ border: 0, filter: 'grayscale(1) contrast(1.2) opacity(0.8)' }} 
+               style={{ border: 0 }} 
                allowFullScreen 
                loading="lazy" 
                title="Store Location"
-               className="dark:mix-blend-luminosity mix-blend-multiply"
+               className=""
              ></iframe>
-             {/* Map Styling Overlay for Theme Integration */}
-             <div className="absolute inset-0 bg-brand-cyan/10 pointer-events-none mix-blend-overlay"></div>
+             {/* Reduced overlay opacity so colors pop more */}
+             <div className="absolute inset-0 bg-brand-cyan/5 pointer-events-none mix-blend-overlay"></div>
           </motion.div>
 
         </div>

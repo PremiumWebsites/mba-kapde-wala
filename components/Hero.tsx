@@ -5,10 +5,11 @@ import { ArrowRight, MapPin } from 'lucide-react';
 const Hero: React.FC = () => {
   return (
     <section id="hero" className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background Abstract Shapes - Dark Mode */}
+      {/* Background Abstract Shapes */}
       <div className="absolute inset-0 w-full h-full bg-brand-light dark:bg-brand-dark transition-colors duration-500">
-        <div className="absolute top-0 -right-40 w-96 h-96 bg-brand-purple/20 dark:bg-brand-purple/10 rounded-full blur-[100px] mix-blend-multiply dark:mix-blend-screen animate-pulse" />
-        <div className="absolute bottom-0 -left-40 w-96 h-96 bg-brand-cyan/20 dark:bg-brand-cyan/10 rounded-full blur-[100px] mix-blend-multiply dark:mix-blend-screen animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-0 -right-40 w-96 h-96 bg-brand-purple/40 dark:bg-brand-purple/30 rounded-full blur-[100px] mix-blend-multiply dark:mix-blend-screen animate-pulse" />
+        <div className="absolute bottom-0 -left-40 w-96 h-96 bg-brand-cyan/40 dark:bg-brand-cyan/30 rounded-full blur-[100px] mix-blend-multiply dark:mix-blend-screen animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-[500px] bg-brand-purple/10 dark:bg-brand-cyan/10 blur-[120px] rounded-full pointer-events-none" />
       </div>
 
       {/* Grid Pattern Overlay */}
@@ -30,23 +31,38 @@ const Hero: React.FC = () => {
         </motion.div>
 
         {/* Main Title - Hinglish */}
-        <motion.h1 
-          className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter mb-4 text-zinc-900 dark:text-white leading-[0.9]"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        <motion.div
+           initial={{ opacity: 0, scale: 0.9 }}
+           animate={{ opacity: 1, scale: 1 }}
+           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+           className="mb-4 flex flex-col items-center"
         >
-          <span className="block bg-clip-text text-transparent bg-gradient-to-br from-zinc-800 to-zinc-500 dark:from-white dark:to-zinc-500">
-            MBA
-          </span>
-          <span className="block font-hindi text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-brand-purple to-brand-cyan bg-[200%_auto] animate-text-shimmer">
-            कपड़े वाला
-          </span>
-        </motion.h1>
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter text-zinc-900 dark:text-white leading-[0.9]">
+            <span className="block bg-clip-text text-transparent bg-gradient-to-br from-zinc-800 to-zinc-500 dark:from-white dark:to-zinc-400">
+              MBA
+            </span>
+          </h1>
+          
+          {/* Enhanced 'Kapde Wala' Text for Clarity */}
+          <div className="relative mt-2 md:mt-4">
+             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black font-hindi text-brand-cyan tracking-wide drop-shadow-2xl filter" style={{ textShadow: '0px 0px 20px rgba(6, 182, 212, 0.3)' }}>
+                कपड़े वाला
+             </h1>
+             {/* Gradient Overlay for style */}
+             <h1 className="absolute inset-0 text-5xl md:text-7xl lg:text-8xl font-black font-hindi text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-white to-brand-cyan bg-[200%_auto] animate-text-shimmer opacity-70" aria-hidden="true">
+                कपड़े वाला
+             </h1>
+          </div>
+
+          {/* Subtitle location */}
+          <p className="text-xl md:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-cyan to-brand-purple mt-6 tracking-widest uppercase filter drop-shadow-sm">
+            Rajnandgaon
+          </p>
+        </motion.div>
 
         {/* Subtitle */}
         <motion.p 
-          className="text-lg md:text-2xl font-light text-zinc-600 dark:text-zinc-400 max-w-2xl mb-10"
+          className="text-lg md:text-2xl font-light text-zinc-800 dark:text-zinc-300 max-w-2xl mb-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
@@ -64,7 +80,7 @@ const Hero: React.FC = () => {
         >
           <a 
             href="#categories" 
-            className="group relative px-8 py-4 bg-zinc-900 dark:bg-white text-white dark:text-black font-bold rounded-lg overflow-hidden transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-3"
+            className="group relative px-8 py-4 bg-zinc-900 dark:bg-white text-white dark:text-black font-bold rounded-lg overflow-hidden transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-3 shadow-lg shadow-brand-purple/20"
           >
             <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-brand-cyan to-brand-purple opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
             <span>View Collection</span>
@@ -72,7 +88,7 @@ const Hero: React.FC = () => {
           </a>
           
           <a 
-            href="https://maps.google.com" 
+            href="https://maps.app.goo.gl/6D51E3hhZgWo1EiB8" 
             target="_blank" 
             rel="noreferrer"
             className="px-8 py-4 bg-transparent border-2 border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-white font-bold rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-all hover:border-zinc-400 dark:hover:border-zinc-600 flex items-center justify-center"

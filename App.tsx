@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+import Team from './components/Team';
 import Categories from './components/Categories';
 import WhyUs from './components/WhyUs';
 import Reviews from './components/Reviews';
 import Location from './components/Location';
 import Footer from './components/Footer';
+import CustomCursor from './components/CustomCursor';
 import { Theme } from './types';
 
 function App() {
@@ -44,10 +46,12 @@ function App() {
 
   return (
     <div className="min-h-screen bg-brand-light dark:bg-brand-dark transition-colors duration-500 w-full overflow-hidden">
+      <CustomCursor />
       <Navbar themeContext={{ theme, toggleTheme }} />
       <main>
         <Hero />
         <About />
+        <Team />
         <Categories />
         <WhyUs />
         <Reviews />

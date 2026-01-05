@@ -16,19 +16,45 @@ const About: React.FC = () => {
             transition={{ duration: 0.8 }}
           >
             <div className="flex items-center gap-3 mb-6">
-              <span className="h-px w-12 bg-brand-purple"></span>
+              <motion.span 
+                className="h-px bg-brand-purple"
+                initial={{ width: 0 }}
+                whileInView={{ width: 48 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              />
               <span className="text-brand-purple font-bold uppercase tracking-widest text-sm">Who We Are</span>
             </div>
             
-            <h2 className="text-4xl md:text-5xl font-black text-zinc-900 dark:text-white mb-8 leading-tight">
-              More than a store.<br />
-              <span className="text-zinc-500 dark:text-zinc-400">We are a lifestyle.</span>
-            </h2>
+            <div className="mb-8 inline-block">
+              <h2 className="text-4xl md:text-5xl font-black text-zinc-900 dark:text-white leading-tight">
+                More than a store.<br />
+                <span className="text-zinc-500 dark:text-zinc-400">We are a lifestyle.</span>
+              </h2>
+              {/* Animated Underline */}
+              <motion.div 
+                className="h-1.5 bg-gradient-to-r from-brand-purple to-brand-cyan rounded-full mt-2"
+                initial={{ width: 0 }}
+                whileInView={{ width: '60%' }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, ease: "circOut" }}
+              />
+            </div>
             
             <div className="space-y-6 text-lg text-zinc-600 dark:text-zinc-300">
               <p>
-                Welcome to <strong className="text-brand-cyan">MBA कपड़े वाला</strong>. Located in the heart of Rajnandgaon, we bring the vibe of metropolitan fashion to your local streets.
+                Welcome to <strong className="text-brand-cyan">MBA कपड़े वाला</strong> (Rajnandgaon). Located in the heart of Rajnandgaon, we bring the vibe of metropolitan fashion to your local streets.
               </p>
+              
+              <div className="p-5 rounded-xl bg-zinc-50 dark:bg-zinc-900/50 border-l-4 border-brand-purple shadow-sm">
+                 <p className="text-base text-zinc-800 dark:text-zinc-200 font-medium">
+                    This store operates as an <span className="text-brand-purple">Authorized Franchisee</span> of <strong>MBA Kapdewala Store</strong>.
+                 </p>
+                 <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-2">
+                    Clothing brand • 150+ stores across India • Head Office in Ahmedabad, India.
+                 </p>
+              </div>
+
               <p>
                 "MBA" stands for our commitment to <span className="italic font-serif text-brand-purple">Modern, Bold, and Authentic</span> fashion. Whether you need a sharp outfit for a meeting or a funky fit for a party, we have curated collections that speak your language.
               </p>
@@ -62,7 +88,7 @@ const About: React.FC = () => {
           >
             <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl shadow-brand-purple/20">
               <img 
-                src="https://picsum.photos/800/1000?grayscale" 
+                src="https://picsum.photos/800/1000?random=10" 
                 alt="Store interior fashion" 
                 className="w-full h-[600px] object-cover hover:scale-105 transition-transform duration-700 ease-in-out"
               />
