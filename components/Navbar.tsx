@@ -38,15 +38,13 @@ const Navbar: React.FC<NavbarProps> = ({ themeContext }) => {
       }`}
     >
       <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
-        {/* Logo */}
-        <a href="#hero" className="flex flex-col items-start group">
-          <img 
-            src="/mba.png" 
-            alt="MBA Kapde Wala" 
-            className="h-10 md:h-12 object-contain transition-transform duration-300 group-hover:scale-105" 
-          />
+        {/* Text Logo */}
+        <a href="#hero" className="flex flex-col items-start group z-50">
+          <div className="text-2xl md:text-3xl font-extrabold tracking-tighter text-zinc-900 dark:text-white leading-none group-hover:scale-105 transition-transform duration-300">
+            MBA <span className="text-brand-cyan">kapde wala</span>
+          </div>
           <span className="text-[0.6rem] font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-widest leading-none mt-1 group-hover:text-zinc-800 dark:group-hover:text-zinc-200 transition-colors ml-1">
-            Rajnandgaon
+            Rajnandgaon Branch
           </span>
         </a>
 
@@ -56,10 +54,10 @@ const Navbar: React.FC<NavbarProps> = ({ themeContext }) => {
             <a
               key={link.name}
               href={link.href}
-              className="text-sm font-semibold uppercase tracking-wider text-zinc-600 dark:text-zinc-400 hover:text-brand-purple dark:hover:text-brand-cyan transition-colors relative group"
+              className="px-2 py-1 text-sm font-semibold uppercase tracking-wider text-zinc-600 dark:text-zinc-400 hover:text-brand-purple dark:hover:text-brand-cyan transition-colors relative group cursor-pointer"
             >
               {link.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-cyan transition-all duration-300 group-hover:w-full" />
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-cyan transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
           
@@ -69,7 +67,7 @@ const Navbar: React.FC<NavbarProps> = ({ themeContext }) => {
           
           <a
             href="tel:+919826760297" 
-            className="flex items-center gap-2 bg-zinc-900 dark:bg-white text-white dark:text-black px-4 py-2 rounded-full text-xs font-bold uppercase hover:scale-105 transition-transform"
+            className="flex items-center gap-2 bg-zinc-900 dark:bg-white text-white dark:text-black px-4 py-2 rounded-full text-xs font-bold uppercase hover:scale-105 transition-transform cursor-pointer"
           >
             <Phone size={14} />
             <span>Call Now</span>
@@ -77,13 +75,14 @@ const Navbar: React.FC<NavbarProps> = ({ themeContext }) => {
         </div>
 
         {/* Mobile Toggle */}
-        <div className="flex md:hidden items-center gap-4">
+        <div className="flex md:hidden items-center gap-4 z-50">
           <ThemeToggle {...themeContext} />
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="text-zinc-800 dark:text-zinc-100 p-1"
+            className="text-zinc-800 dark:text-zinc-100 p-2 focus:outline-none"
+            aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X /> : <Menu />}
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
@@ -95,7 +94,7 @@ const Navbar: React.FC<NavbarProps> = ({ themeContext }) => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800 overflow-hidden"
+            className="md:hidden bg-white dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800 overflow-hidden absolute top-full left-0 right-0 shadow-2xl"
           >
             <div className="flex flex-col p-4 gap-4">
               {navLinks.map((link) => (
@@ -103,15 +102,15 @@ const Navbar: React.FC<NavbarProps> = ({ themeContext }) => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-lg font-bold text-zinc-800 dark:text-zinc-200 py-2 border-b border-zinc-100 dark:border-zinc-900 last:border-0"
+                  className="text-lg font-bold text-zinc-800 dark:text-zinc-200 py-3 border-b border-zinc-100 dark:border-zinc-900 last:border-0 hover:text-brand-cyan transition-colors"
                 >
                   {link.name}
                 </a>
               ))}
-              <div className="flex gap-3 mt-2">
+              <div className="flex gap-3 mt-2 pb-4">
                  <a
                   href="tel:+919826760297" 
-                  className="flex-1 flex justify-center items-center gap-2 bg-brand-cyan text-white py-3 rounded-lg font-bold"
+                  className="flex-1 flex justify-center items-center gap-2 bg-brand-cyan text-white py-3 rounded-lg font-bold active:scale-95 transition-transform"
                 >
                   <Phone size={18} /> Call
                 </a>
@@ -119,7 +118,7 @@ const Navbar: React.FC<NavbarProps> = ({ themeContext }) => {
                   href="https://maps.app.goo.gl/6D51E3hhZgWo1EiB8" 
                   target="_blank"
                   rel="noreferrer"
-                  className="flex-1 flex justify-center items-center gap-2 bg-zinc-800 text-white py-3 rounded-lg font-bold"
+                  className="flex-1 flex justify-center items-center gap-2 bg-zinc-800 text-white py-3 rounded-lg font-bold active:scale-95 transition-transform"
                 >
                   <MapPin size={18} /> Map
                 </a>

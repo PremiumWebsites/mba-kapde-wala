@@ -12,7 +12,7 @@ const categories: CategoryCardProps[] = [
 const CategoryCard: React.FC<CategoryCardProps> = ({ title, image, delay }) => {
   return (
     <motion.div
-      className="group relative h-[400px] overflow-hidden rounded-2xl cursor-pointer bg-zinc-200 dark:bg-zinc-800"
+      className="group relative h-[400px] md:h-[450px] overflow-hidden rounded-2xl cursor-pointer bg-zinc-200 dark:bg-zinc-800"
       initial={{ opacity: 0, scale: 0.95 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -45,14 +45,15 @@ const Categories: React.FC = () => {
           <div>
             <h2 className="text-4xl md:text-6xl font-black text-zinc-900 dark:text-white mb-2 relative inline-block">
               Curated <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-cyan">Collections</span>
-              <motion.div 
-                className="absolute -bottom-2 left-0 h-2 bg-brand-cyan/30 rounded-full"
-                initial={{ width: 0 }}
-                whileInView={{ width: '100%' }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              />
             </h2>
+             {/* Standardized Animated Underline */}
+            <motion.div 
+              className="h-1.5 bg-gradient-to-r from-brand-purple to-brand-cyan rounded-full mt-2"
+              initial={{ width: 0 }}
+              whileInView={{ width: '80%' }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            />
             <p className="text-zinc-600 dark:text-zinc-400 max-w-md mt-4">
               Handpicked styles for the bold and the classy. Whatever your vibe, we have the fit.
             </p>

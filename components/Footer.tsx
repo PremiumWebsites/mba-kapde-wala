@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
           <span className="text-2xl font-extrabold tracking-tighter text-zinc-900 dark:text-white leading-tight">
             MBA <span className="text-brand-cyan">kapde wala</span>
           </span>
-          <span className="text-[0.6rem] font-bold text-zinc-500 uppercase tracking-widest mt-1">Rajnandgaon</span>
+          <span className="text-[0.6rem] font-bold text-zinc-500 uppercase tracking-widest mt-1">Rajnandgaon Branch</span>
           <p className="text-sm mt-4">© {new Date().getFullYear()} All rights reserved.</p>
         </div>
 
